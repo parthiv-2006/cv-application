@@ -1,13 +1,8 @@
 import { useState } from "react";
 
-function GeneralInfo() {
-  const [formData, setFormData] = useState({ name: "", email: "", phone: "" });
+function GeneralInfo({formData, onChange}) {
   const [isEditing, setEditing] = useState(true);
 
-  function handleChange(event) {
-    const { name, value } = event.target;
-    setFormData((prevFormData) => ({ ...prevFormData, [name]: value }));
-  }
   function handleSubmit(event) {
     event.preventDefault();
     setEditing(false);
@@ -24,7 +19,7 @@ function GeneralInfo() {
               type="text"
               name="name"
               value={formData.name}
-              onChange={handleChange}
+              onChange={onChange}
               required
             />
           </label>
@@ -34,7 +29,7 @@ function GeneralInfo() {
               type="email"
               name="email"
               value={formData.email}
-              onChange={handleChange}
+              onChange={onChange}
               required
             />
           </label>
@@ -44,7 +39,7 @@ function GeneralInfo() {
               type="tel"
               name="phone"
               value={formData.phone}
-              onChange={handleChange}
+              onChange={onChange}
             />
           </label>
           <button type="submit">Submit</button>

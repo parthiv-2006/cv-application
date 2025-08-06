@@ -1,18 +1,8 @@
 import { useState } from "react";
 
-function Experience() {
-  const [experienceData, setExperienceData] = useState({
-    company: "",
-    position: "",
-    startDate: "",
-    endDate: "",
-    description: "",
-  });
+function Experience({experienceData, onChange}) {
+  
   const [isEditing, setEditing] = useState(true);
-  function handleChange(event) {
-    const {name, value} = event.target
-    setExperienceData((prevExperienceData) => ({...prevExperienceData, [name]: value}))
-  }
 
   function handleSubmit(event) {
     event.preventDefault();
@@ -31,7 +21,7 @@ function Experience() {
               type="text"
               name="company"
               value={experienceData.company}
-              onChange={handleChange}
+              onChange={onChange}
               required
             />
           </label>
@@ -41,7 +31,7 @@ function Experience() {
               type="text"
               name="position"
               value={experienceData.position}
-              onChange={handleChange}
+              onChange={onChange}
               required
             />
           </label>
@@ -51,7 +41,7 @@ function Experience() {
               type="date"
               name="startDate"
               value={experienceData.startDate}
-              onChange={handleChange}
+              onChange={onChange}
               required
             />
           </label>
@@ -61,7 +51,7 @@ function Experience() {
               type="date"
               name="endDate"
               value={experienceData.endDate}
-              onChange={handleChange}
+              onChange={onChange}
               required
             />
           </label>
@@ -71,7 +61,7 @@ function Experience() {
               maxLength={150}
               name="description"
               value={experienceData.description}
-              onChange={handleChange}
+              onChange={onChange}
               required
             />
           </label>

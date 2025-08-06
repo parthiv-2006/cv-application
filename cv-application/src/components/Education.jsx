@@ -1,20 +1,7 @@
 import { useState } from "react";
 
-function Education() {
-  const [educationData, setEducation] = useState({
-    university: "",
-    degree: "",
-    endDate: "",
-  });
+function Education({educationData, handleChange}) {
   const [isEditing, setEditing] = useState(true);
-
-  function handleChange(event) {
-    const { name, value } = event.target;
-    setEducation((prev) => ({
-      ...prev,
-      [name]: value,
-    }));
-  }
 
   function handleSubmit(event) {
     event.preventDefault();
