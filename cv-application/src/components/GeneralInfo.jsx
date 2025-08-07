@@ -1,6 +1,7 @@
 import { useState } from "react";
+import styles from "../styles/GeneralInfo.module.css"; // Import the CSS module
 
-function GeneralInfo({formData, onChange, onFormSubmit}) {
+function GeneralInfo({ formData, onChange, onFormSubmit }) {
   const [isEditing, setEditing] = useState(true);
 
   function handleSubmit(event) {
@@ -11,9 +12,9 @@ function GeneralInfo({formData, onChange, onFormSubmit}) {
 
   if (isEditing) {
     return (
-      <div className="general-info-section">
+      <div className={styles["general-info-section"]}>
         <h2>General Information</h2>
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} className={styles["form"]}>
           <label>
             Name*:
             <input
@@ -49,7 +50,7 @@ function GeneralInfo({formData, onChange, onFormSubmit}) {
     );
   }
   return (
-    <div>
+    <div className={styles["edit-section"]}>
       <h2>General Information</h2>
       <p>Name: {formData.name}</p>
       <p>E-mail: {formData.email}</p>

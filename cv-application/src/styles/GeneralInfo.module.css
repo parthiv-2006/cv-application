@@ -1,0 +1,47 @@
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem; /* Creates space between form elements */
+  }
+
+.form label {
+    display: flex;
+    flex-direction: column;
+    font-weight: 500;
+    color: #2d3436;
+  }
+  
+.form label input {
+    padding: 0.75rem;
+    margin-top: 0.5rem;
+    border: 1px solid #b2bec3;
+    border-radius: 4px;
+    font-size: 1rem;
+  }
+  
+.form button, .edit-section button {
+    background-color: #0984e3;
+    color: white;
+    border: none;
+    padding: 0.25rem 0.75rem;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+    align-self: flex-start; /* Aligns button to the left */
+    transition: transform 0.2s ease-in-out;
+}
+  
+  .form button:hover, .edit-section button:hover {
+    transform: scale(1.05);
+    background-color: #0056b3;
+  }
+
+.edit-section {
+    text-overflow: wrap;
+    padding: 1rem;
+    max-width: 17rem;
+    border: 1px solid #b2bec3;
+    border-radius: 12px;
+    background-color: rgb(210, 233, 248);
+}
+
