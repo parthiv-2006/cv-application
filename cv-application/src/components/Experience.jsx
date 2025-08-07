@@ -1,4 +1,5 @@
 import { useState } from "react";
+import styles from "../styles/GeneralInfo.module.css"; // Import the CSS module
 
 function Experience({experienceData, onChange, onFormSubmit}) {
   
@@ -13,9 +14,9 @@ function Experience({experienceData, onChange, onFormSubmit}) {
 
   if (isEditing) {
     return (
-      <div>
+      <div className={styles["general-info-section"]}>
         <h2>Experience</h2>
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} className={styles["form"]}>
           <label>
             Company:
             <input
@@ -72,7 +73,7 @@ function Experience({experienceData, onChange, onFormSubmit}) {
     );
     }
     return (
-        <div>
+        <div className={styles["edit-section"]}>
             <h2>Experience</h2>
             <p>Company: {experienceData.company}</p>
             <p>Position: {experienceData.position}</p>

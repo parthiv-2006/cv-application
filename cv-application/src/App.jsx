@@ -1,9 +1,9 @@
-import { useState } from 'react'
-import './App.css'
-import GeneralInfo from './components/GeneralInfo.jsx'
-import Experience from './components/Experience.jsx'
-import Education from './components/Education.jsx'
-import CvPreview from './components/CvPreview.jsx'
+import { useState } from "react";
+import "./App.css";
+import GeneralInfo from "./components/GeneralInfo.jsx";
+import Experience from "./components/Experience.jsx";
+import Education from "./components/Education.jsx";
+import CvPreview from "./components/CvPreview.jsx";
 
 function App() {
   const [generalInfoData, setGeneralInfo] = useState({
@@ -41,19 +41,21 @@ function App() {
     }));
   }
   const [submitState, setSubmitState] = useState({
-    general: false, experience: false, education: false
-  })
+    general: false,
+    experience: false,
+    education: false,
+  });
   function generalSubmit() {
     setSubmitState((prev) => ({
       ...prev,
-      general : true
-    }))
+      general: true,
+    }));
   }
   function educationSubmit() {
     setSubmitState((prev) => ({
       ...prev,
-      education : true
-    }))
+      education: true,
+    }));
   }
   function experienceSubmit() {
     setSubmitState((prev) => ({
@@ -62,15 +64,36 @@ function App() {
     }));
   }
 
-  const allSubmitted = submitState.general && submitState.education && submitState.experience;
+  const allSubmitted =
+    submitState.general && submitState.education && submitState.experience;
   return (
-    <div>
-      <GeneralInfo formData={generalInfoData} onChange={handleChangeGeneralInfo} onFormSubmit = {generalSubmit}/>
-      <Experience experienceData={experienceData} onChange={handleChangeExperience} onFormSubmit = {experienceSubmit}/>
-      <Education educationData={educationData} handleChange={handleChangeEducation} onFormSubmit = {educationSubmit}/>
-      {allSubmitted && (<CvPreview generalInfoData={generalInfoData} experienceData={experienceData} educationData={educationData}/>)}
+    <div className="main-container">
+      <div className={allSubmitted ? "form-container" : ""}>
+        <GeneralInfo
+          formData={generalInfoData}
+          onChange={handleChangeGeneralInfo}
+          onFormSubmit={generalSubmit}
+        />
+        {submitState.general && <Experience
+          experienceData={experienceData}
+          onChange={handleChangeExperience}
+          onFormSubmit={experienceSubmit}
+        />}
+        {submitState.general && submitState.experience && <Education
+          educationData={educationData}
+          handleChange={handleChangeEducation}
+          onFormSubmit={educationSubmit}
+        />}
+      </div>
+      {allSubmitted && (
+        <CvPreview
+          generalInfoData={generalInfoData}
+          experienceData={experienceData}
+          educationData={educationData}
+        />
+      )}
     </div>
-  )
+  );
 }
 
-export default App
+export default App;

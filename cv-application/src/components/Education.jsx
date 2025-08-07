@@ -1,4 +1,5 @@
 import { useState } from "react";
+import styles from "../styles/GeneralInfo.module.css";
 
 function Education({educationData, handleChange, onFormSubmit}) {
   const [isEditing, setEditing] = useState(true);
@@ -11,9 +12,9 @@ function Education({educationData, handleChange, onFormSubmit}) {
 
   if (isEditing) {
     return (
-      <div>
-        <form onSubmit={handleSubmit}>
-          <h2>Education</h2>
+      <div className={styles["general-info-section"]}>
+        <h2>Education</h2>
+        <form onSubmit={handleSubmit} className={styles["form"]}>
           <label>
             University:
             <input
@@ -50,7 +51,7 @@ function Education({educationData, handleChange, onFormSubmit}) {
     );
   }
   return (
-    <div>
+    <div className={styles["edit-section"]}>
       <h2>Education</h2>
       <p>University: {educationData.university}</p>
       <p>Degree: {educationData.degree}</p>
