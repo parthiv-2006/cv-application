@@ -1,12 +1,13 @@
 import { useState } from "react";
 
-function Experience({experienceData, onChange}) {
+function Experience({experienceData, onChange, onFormSubmit}) {
   
   const [isEditing, setEditing] = useState(true);
 
   function handleSubmit(event) {
     event.preventDefault();
     setEditing(false);
+    onFormSubmit();
   }
 
 

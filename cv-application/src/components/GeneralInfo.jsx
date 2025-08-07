@@ -1,11 +1,12 @@
 import { useState } from "react";
 
-function GeneralInfo({formData, onChange}) {
+function GeneralInfo({formData, onChange, onFormSubmit}) {
   const [isEditing, setEditing] = useState(true);
 
   function handleSubmit(event) {
     event.preventDefault();
     setEditing(false);
+    onFormSubmit();
   }
 
   if (isEditing) {

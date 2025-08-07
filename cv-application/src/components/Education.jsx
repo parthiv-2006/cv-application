@@ -1,11 +1,12 @@
 import { useState } from "react";
 
-function Education({educationData, handleChange}) {
+function Education({educationData, handleChange, onFormSubmit}) {
   const [isEditing, setEditing] = useState(true);
 
   function handleSubmit(event) {
     event.preventDefault();
     setEditing(false);
+    onFormSubmit();
   }
 
   if (isEditing) {
